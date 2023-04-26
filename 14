@@ -1,0 +1,25 @@
+Gas station
+Есть несколько типов бензина
+92, 95, 98
+У каждого вида топлива есть хранилище объемом 1000 литров
+Изначально хранилище пусто
+Изначально стоимость каждого литра 50 рублей
+POST /refuel/ заправить
+Заправить 50 литров
+requests.post('http://127.0.0.1:5000/refuel/',
+json={'type': '92', 'volume': 50})
+Заправить на 1000 рублей
+requests.post('http://127.0.0.1:5000/refuel/',
+json={'type': '92', 'money': 1000})
+Ответ
+{'status': 'ok'}
+{'status': 'fail', 'text': 'not enough fuel'}
+POST /fueltruck/ приехал грузовик с топливом
+requests.post('http://127.0.0.1:5000/fueltruck/',
+json={'data' : {'92': 500, '95': 100000,})
+POST /prices/ новые цены на топливо
+requests.post('http://127.0.0.1:5000/prices/',
+json={'data' : {'92': 10, '95': 100000,})
+POST /revenue/ выручка
+requests.get('http://127.0.0.1:5000/revenue/' )
+{'revenue': 500}
